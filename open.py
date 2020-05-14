@@ -19,10 +19,18 @@ def get_project_name():
         project_name = str(sys.argv[1])
     except:
         project_name = 'test none'
-        current_directory = os.getcwd().split('\\')
+        current_directory = get_current_directory_linux()
         project_name = '{0}-{1}'.format(current_directory[-2].lower(), current_directory[-1])
     return project_name
     
+
+def get_current_directory_windows():
+    return os.getcwd().split('\\')
+
+
+def get_current_directory_linux():
+    return os.getcwd().split('/')
+
 
 if __name__ == '__main__':
     open_project()
